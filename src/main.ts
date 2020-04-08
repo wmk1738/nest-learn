@@ -7,10 +7,9 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
     const options = new DocumentBuilder()
-        .setTitle('Cats example')
-        .setDescription('The cats API description')
+        .setTitle('接口文档')
+        .setDescription('博客的增删改查')
         .setVersion('1.0')
-        .addTag('cats')
         .build();
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('api', app, document);
@@ -20,5 +19,6 @@ async function bootstrap() {
         module.hot.accept();
         module.hot.dispose(() => app.close());
     }
+
 }
 bootstrap();
